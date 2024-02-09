@@ -1,0 +1,28 @@
+<%- include("head") %>
+<link rel="stylesheet" href="/stylesheets/formLogin.css" />
+<%- include("navbar") %>
+
+<title>Login</title>
+
+
+<main class="container-fluid ">
+  <section class="row prueba ">
+    <div class="col d-flex justify-content-center align-items-center ">
+      
+      <form action="/restaurant/login" method="post">
+        <h1 class="fw-bold text-center">Loguéate</h1>
+        <input type="email" placeholder="Email" name="email" />
+        <input type="password" placeholder="Contraseña" name="password" />
+        <p class="text-white h2  text-center">
+          <%= typeof message != 'undefined' ? message : null %>
+        </p>
+        <button class="btn buttons m-1">Aceptar</button>
+        <a href="/">
+          <button class="btn buttons m-1" type="button">Cancelar</button>
+        </a>
+      </form>
+    </div>
+  </section>
+</main>
+
+<%- include("footer") %>

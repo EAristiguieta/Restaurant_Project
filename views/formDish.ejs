@@ -1,0 +1,27 @@
+<%- include("head") %>
+<link rel="stylesheet" href="/stylesheets/registerRestaurant.css" />
+<%- include("navbar") %>
+
+<title>Formulario creacion de platos</title>
+
+<main class="container-fluid">
+  <section class="row prueba">
+    <div class="col">
+      <h1>Formulario de registro de platos</h1>
+      <form action="/dish/createDish/<%= restaurant_id %>" method="post" enctype="multipart/form-data">
+        <input type="text" name="dish_name" placeholder="Nombre del plato" />
+        <input type="text" name="dish_description" placeholder="Descripcion" />
+        <label class="label-img" for="file">Sube una imagen</label>
+        <input id="file" hidden  type="file" name="img" />
+        <p><%= typeof message != "undefined" ? message : null %></p>
+        <button class="btn buttons">Aceptar</button>
+        <button class="btn buttons" type="reset">Limpiar</button>
+        <a href="/"
+          ><button class="btn buttons" type="button">Cancelar</button></a
+        >
+      </form>
+    </div>
+  </section>
+</main>
+
+<%- include("footer") %>

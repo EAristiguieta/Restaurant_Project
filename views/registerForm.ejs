@@ -1,0 +1,40 @@
+<%- include("head") %>
+<link rel="stylesheet" href="/stylesheets/registerRestaurant.css" />
+<%- include("navbar") %>
+
+<title>Registro restaurante</title>
+
+<main class="container-fluid">
+  <section class="row prueba">
+    <div class="col d-flex justify-content-center align-items-center">
+      <form
+        action="/restaurant/register"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <h1 class="fw-bold text-center">Formulario de registro</h1>
+        <input type="text" name="restaurant_name" placeholder="Nombre" />
+        <input type="text" name="style" placeholder="Estilo" />
+        <input type="email" name="email" placeholder="Email" />
+        <input type="password" name="password" placeholder="Contraseña" />
+        <input
+          type="password"
+          name="password2"
+          placeholder="Repita su contraseña"
+        />
+        <label class="label-img" for="file">Sube una imagen</label>
+        <input id="file" hidden type="file" name="img" />
+        <p class="text-white h2  text-center">
+          <%= typeof message != "undefined" ? message : null %>
+        </p>
+        <button class="btn buttons">Aceptar</button>
+        <button class="btn buttons" type="reset">Limpiar</button>
+        <a href="/"
+          ><button class="btn buttons" type="button">Cancelar</button></a
+        >
+      </form>
+    </div>
+  </section>
+</main>
+
+<%- include("footer") %>

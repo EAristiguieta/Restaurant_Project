@@ -1,0 +1,32 @@
+<%- include("head") %>
+<link rel="stylesheet" href="/stylesheets/registerRestaurant.css" />
+<%- include("navbar") %>
+
+<title>Edicion</title>
+
+<main class="container-fluid">
+  <section class="row prueba">
+    <div class="col ">
+      <h2>Formulario para editar tu restaurante</h2>
+      <form
+        action="/restaurant/editRestaurant/<%= result[0].restaurant_id %>"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input type="text" name="restaurant_name" placeholder="Nombre" value="<%= result[0].restaurant_name %>" />
+        <input type="text" name="style" placeholder="Estilo" value="<%= result[0].style %>"/>
+        <input type="text" name="restaurant_description" placeholder="restaurante_description" value="<%= result[0].restaurant_description %>"/>
+        <label class="label-img" for="file">Sube una imagen</label>
+        <input type="file" name="img" id="file" hidden />
+        <h3><%= typeof message != "undefined" ? message : null %></h3>
+        <button class="btn buttons">Aceptar</button>
+        <button class="btn buttons" type="reset">Limpiar</button>
+        <a href="/"
+          ><button class="btn buttons" type="button">Cancelar</button></a
+        >
+      </form>
+    </div>
+  </section>
+</main>
+
+<%- include("footer") %>

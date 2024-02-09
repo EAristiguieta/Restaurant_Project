@@ -1,0 +1,65 @@
+<%- include("head") %>
+<link rel="stylesheet" href="/stylesheets/home.css" />
+<title>Perfil</title>
+<%- include("navbar") %>
+
+<section class="container-fluid">
+  <section class="row prueba">
+    <div class="col">
+      <h1 class="bordeTexto">Perfil del restaurante: <%= result[0].restaurant_name %></h1>
+      <p class="text-white fw-bold bordeTexto ">Estilo: <%= result[0].style %></p>
+      <p class="text-white fw-bold bordeTexto">
+        Descripcion: <%= result[0].restaurant_description %>
+      </p>
+
+      <img
+        src="/images/restaurant/<%= result[0].restaurant_img %>"
+        alt=""
+        class="res"
+      />
+
+      <a href="/restaurant/editRestaurant/<%= result[0].restaurant_id %>">
+        <button class="btn buttons m-1">Modificar restaurante</button>
+      </a>
+
+      <a href="/dish/createDish/<%= result[0].restaurant_id %>">
+        <button class="btn buttons m-1">Crear platos</button>
+      </a>
+    </div>
+  </section>
+
+  <section class="row">
+    <div class="col">
+      <h2>Platos</h2>
+      <div class="d-flex flex-wrap gap-4 m-3">
+        <% result_dish.forEach((elem) => { %>
+
+        <div class="card">
+          <img
+            src="/images/dishes/<%= elem.dish_img %>"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body ">
+            <h5 class="card-title"><%= elem.dish_name %></h5>
+            <p class="card-text"><%= elem.dish_description %></p>
+            <a
+              href="/dish/deleteDish/<%= elem.dish_id %>/<%= elem.restaurant_id %>"
+              class="btn buttons m-1"
+              >Borrar</a
+            >
+            <a
+              href="/dish/editDish/<%= elem.dish_id %>/<%= elem.restaurant_id %>"
+              class="btn buttons m-1 "
+              >Modificar</a
+            >
+          </div>
+        </div>
+
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</section>
+
+<%- include("footer") %>

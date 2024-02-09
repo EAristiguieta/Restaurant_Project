@@ -1,0 +1,18 @@
+<%- include("head") %>
+<%- include("navbar") %>
+
+<div class="container fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <img class="img-fluid w-50" src="/images/BancoImages/error.png" alt="">
+  
+    </div>
+    <div class="col-md-6">
+      <h1><%= message %></h1>
+      <h2><%= error.status %></h2>
+      <pre><%= error.stack %></pre>
+    </div>
+  </div>
+</div>
+
+<%- include("footer") %>
